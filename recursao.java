@@ -2,7 +2,8 @@ public class recursao{
     
     public static void main(String [] args){
         System.out.println("Teste:");
-        int teste = exercicio6(3, 5);
+        int[] vetor = {1,2,3};
+        int teste = exercicio7(vetor);
         System.out.println(teste);
     }
     
@@ -64,6 +65,19 @@ public class recursao{
             return exercicio6(m-1, 1);
         }
         return exercicio6(m-1, exercicio6(m, n-1));
+    }
+
+    public static int exercicio7(int[] numeros){
+        if(numeros.length == 0){
+            throw new IllegalArgumentException("O vetor não pode ser vazio");
+        }
+        if(numeros.length == 1){
+            return numeros[0];
+        }
+
+        int resultado = numeros[numeros.length-1];
+
+        return resultado+=exercicio7(numeros);
     }
 
 }
